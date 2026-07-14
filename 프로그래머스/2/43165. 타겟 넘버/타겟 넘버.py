@@ -4,19 +4,16 @@ def solution(numbers, target):
             ans = 0
             for i, n in enumerate(numbers):
                 ans += n * visited[i]
-            if ans == target:
-                answer[0] += 1
-            return True
+            return 1 if ans == target else 0
         
         visited.append(-1)
-        dfs(i+1, n_i, visited)
+        l = dfs(i+1, n_i, visited)
         visited.pop()
         visited.append(1)
-        dfs(i+1, n_i, visited)
+        r = dfs(i+1, n_i, visited)
         visited.pop()
+        return l+r
         
-    
     visited = []
-    answer = [0]
-    dfs(0, len(numbers), visited)
-    return answer[0]
+    answer = dfs(0, len(numbers), visited)
+    return answer
