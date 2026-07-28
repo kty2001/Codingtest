@@ -2,18 +2,14 @@ def solution(word):
     mo = ['A', 'E', 'I', 'O', 'U']
     dic = []
     
-    def dfs(string, l):
-        if l > 5:
-            return
-        if string not in dic:
-            dic.append(string)
+    def dfs(s, l):
+        if l > 5: return
+    
+        dic.append(s)
         for m in mo:
-            string += m
-            dfs(string, l+1)
-            string = string[:-1]
-    for m in mo:
-        dfs(m, 1)
-    
-    dic.sort()
-    
-    return dic.index(word) + 1
+            s += m
+            dfs(s, l+1)
+            s = s[:-1]
+            
+    dfs('', 0)
+    return dic.index(word)
