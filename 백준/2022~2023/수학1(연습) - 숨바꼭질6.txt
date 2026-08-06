@@ -1,0 +1,12 @@
+import sys
+
+input = sys.stdin.readline
+import math
+
+n, start = map(int, input().split())
+sis_arr = list(map(int, input().split()))
+
+for i in range(n):
+  sis_arr[i] = start - sis_arr[i]
+
+print(math.gcd(*sis_arr))

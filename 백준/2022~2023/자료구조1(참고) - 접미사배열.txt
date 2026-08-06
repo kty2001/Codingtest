@@ -1,0 +1,10 @@
+import sys
+input = sys.stdin.readline
+
+word = input().rstrip()
+suffix = []
+for i in range(len(word)):
+  suffix.append(word[i:])
+
+suffix.sort()
+print(*suffix, sep = "\n")

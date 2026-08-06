@@ -1,0 +1,29 @@
+import sys
+input = sys.stdin.readline
+
+while True:
+  word = list(input())
+  if word:
+    small, big, blank, number = 0, 0, 0, 0
+    for i in word:
+      if i.isnumeric(): number += 1
+      elif "A" <= i <= "Z": big += 1
+      elif "a" <= i <= "z": small += 1
+      elif i == " ": blank += 1
+    print(small, big, number, blank)
+  else: break
+-----------------------------------------
+import sys
+input = sys.stdin.readline
+
+while True:
+  word = list(input())
+  if word:
+    small, big, blank, number = 0, 0, 0, 0
+    for i in word:
+      if i.isnumeric(): number += 1
+      elif "A" <= i <= "Z": big += 1
+      elif "a" <= i <= "z": small += 1
+      elif i == " ": blank += 1
+    print(small, big, number, blank)
+  else: break

@@ -1,0 +1,19 @@
+def factorial(n, ans):
+  if n == 0:
+    return ans
+  else:
+    return factorial(n-1, ans*n)
+
+num = int(input())
+print(factorial(num, 1))
+
+-----------------------------
+
+def factorial(n):
+    result = 1
+    if n > 0 :
+        result = n * factorial(n-1)
+    return result
+
+n = int(input())
+print(factorial(n))

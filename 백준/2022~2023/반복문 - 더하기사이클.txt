@@ -1,0 +1,30 @@
+n = int(input())
+count = 0
+num = 0
+a = n//10
+b = n%10
+while num != n:
+    num = (b*10)+((a+b)%10)
+    a = num // 10
+    b = num % 10
+    count += 1
+if(n==0):
+    print("1")
+else:
+    print(count)
+
+------------------------------------------
+N = int(input())  #입력받은 값을 int로 바꿈
+num = N           #변하는 값
+count = 0         #몇 번 사이클인지
+ 
+while True:
+    a = num//10
+    b = num %10
+    c = (a+b)%10
+    num = (b*10) + c
+    count += 1
+    if(num == N):
+        break
+ 
+print(count)

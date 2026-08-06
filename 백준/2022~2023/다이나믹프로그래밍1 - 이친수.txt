@@ -1,0 +1,9 @@
+n = int(input())
+ns = [0] + [1]
+sol = [0] + [1]
+
+for i in range(2, n + 1):
+  sol[0], sol[1]= sol[0] + sol[1], sol[0]
+  ns.append(sum(sol))
+
+print(ns[n])

@@ -1,0 +1,28 @@
+시간초과
+import sys
+from itertools import combinations as comb
+input = sys.stdin.readline
+
+n = int(input())
+ans = 10e9
+s = []
+for i in range(n):
+  s.append(list(map(int, input().split())))
+  
+arr = []
+for i in range(2, n-1):
+  arr.extend(list(comb(range(n), i)))
+
+for i in range(len(arr)//2):
+  start_total, link_total = 0, 0
+  for x in range(len(arr[i])):
+    for y in range(x + 1, len(arr[i])):
+      start_total += (s[arr[i][x]][arr[i][y]] + s[arr[i][y]][arr[i][x]])
+  for x in range(len(arr[-1-i])):
+    for y in range(x + 1, len(arr[-1-i])):
+      link_total += (s[arr[-1-i][x]][arr[-1-i][y]] + s[arr[-1-i][y]][arr[-1-i][x]])
+  ans = min(ans, abs(start_total - link_total))
+  if ans == 0:
+    print(ans)
+    exit()
+print(ans)

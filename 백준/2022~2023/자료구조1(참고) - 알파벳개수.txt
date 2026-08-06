@@ -1,0 +1,8 @@
+import sys
+input = sys.stdin.readline
+
+word = input().rstrip()
+alphabet = [0 for _ in range(26)]
+for i in word:
+  alphabet[ord(i) - 97] += 1
+print(*alphabet)

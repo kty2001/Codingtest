@@ -1,0 +1,36 @@
+def d(n):
+  for i in range(n-40,n):
+    if(i < 0): continue
+    num2 = str(i)
+    num = list(map(int, num2))
+    maker = i + sum(num)
+    if (maker == n):
+      break
+    if (i == n-1):
+      return n
+  return 0
+
+for i in range(10001):
+  ans = d(i)
+  if(ans != 0):
+    print(ans)
+
+-----------------------------------------------
+numbers = list(range(1, 10001))
+remove_list = []  # 이후에 삭제할 숫자 list
+for num in numbers :
+    for n in str(num):
+        num += int(n)  # 생성자가 있는 숫자
+    if num <= 10_000:  # 10,000보다 작거나 같을 때만,
+        remove_list.append(num)  # append: 리스트에 요소를 추가할 때
+
+for remove_num in set(remove_list) :  # set 으로 중복값 제거
+    numbers.remove(remove_num)
+for self_num in numbers :  # 생성자가 있는 숫자를 삭제한 리스트
+    print(self_num)
+
+
+for num in numbers:
+    for n in str(num):
+        ans += int(n)
+숫자의 각 자리수의 합 구할 때 사용할 수 있을 것 같다

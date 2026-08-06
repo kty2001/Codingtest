@@ -1,0 +1,7 @@
+import sys
+
+n = int(input())
+for _ in range(n):
+  sentence = list(map(str, sys.stdin.readline().split()))
+  for i in sentence:
+    print(i[::-1], end = " ")

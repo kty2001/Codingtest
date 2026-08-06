@@ -1,0 +1,13 @@
+import sys
+input = sys.stdin.readline
+
+word = list(input())
+
+for i in range(len(word)):
+  x = ord(word[i])
+  if 65 <= x <= 77: word[i] = chr(x + 13)
+  elif 78 <= x <= 90: word[i] = chr(x - 13)
+  elif 97 <= x <= 109: word[i] = chr(x + 13)
+  elif 100 <= x <= 122: word[i] = chr(x - 13)
+
+print(*word, sep = "")

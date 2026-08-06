@@ -1,0 +1,12 @@
+-------------------------
+자신보다 작은 수 중에 가장 긴 수열 길이 + 1 한다.
+n = int(input())
+a = list(map(int, input().split()))
+dp = [1 for i in range(n)]
+
+for i in range(n):
+    for j in range(i):
+        if a[i] > a[j] and dp[i] <= dp[j]:
+            dp[i] = dp[j] + 1
+
+print(max(dp))

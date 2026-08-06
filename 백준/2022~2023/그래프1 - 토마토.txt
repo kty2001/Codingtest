@@ -1,0 +1,39 @@
+from collections import deque
+import sys
+input = sys.stdin.readline
+
+def bfs():
+  dq = deque()
+  for i in range(n):
+    for j in range(m):
+      if graph[i][j] == 1:
+        dq.append([i, j])
+
+  x, y = 0, 0
+  while dq:
+    x, y = dq.popleft()
+    for i in range(4):
+      nx = x + dx[i]
+      ny = y + dy[i]
+      if nx < 0 or nx > n - 1 or ny < 0 or ny > m - 1:
+        continue
+      else:
+        if graph[nx][ny] == 0:
+          graph[nx][ny] = graph[x][y] + 1
+          dq.append([nx, ny])
+  return graph[x][y]
+
+dx = [1, -1, 0, 0]
+dy = [0, 0, 1, -1]
+m, n = map(int, input().split())
+graph = []
+
+for i in range(n):
+  graph.append(list(map(int, input().split())))
+
+ans = bfs()
+for i in range(n):
+  if 0 in graph[i]:
+    print(-1)
+    exit()
+print(ans - 1)

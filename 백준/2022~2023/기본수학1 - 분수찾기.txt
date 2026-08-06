@@ -1,0 +1,27 @@
+target = int(input())
+cnt = 1
+while target > (cnt)*(cnt+1)/2:
+  cnt += 1
+x = int(target - (cnt-1)*cnt/2)
+if cnt%2 == 0:
+  print("{0}/{1}".format(x, cnt + 1 - x))
+else:
+  print("{0}/{1}".format(cnt + 1 - x, x))
+
+-------------------------------------------
+
+X=int(input())
+
+line=1
+while X>line:
+    X-=line
+    line+=1
+    
+if line%2==0:
+    a=X
+    b=line-X+1
+else:
+    a=line-X+1
+    b=X
+    
+print(a, '/', b, sep='')

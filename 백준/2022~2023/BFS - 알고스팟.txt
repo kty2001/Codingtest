@@ -1,0 +1,31 @@
+from collections import deque
+
+dx = [1, -1, 0, 0]
+dy = [0, 0, 1, -1]
+
+def zero_one_bfs():
+  dq = deque([[0, 0]])
+  visited[0][0] = 1
+  while dq:
+    x, y = dq.popleft()
+    if x == n-1 and y == m-1:
+      return graph[n-1][m-1]
+    for i in range(4):
+      nx = x + dx[i]
+      ny = y + dy[i]
+      if 0 <= nx < n and 0 <= ny < m and visited[nx][ny] == 0:
+        visited[nx][ny] = 1
+        if graph[nx][ny] == 0:
+          dq.appendleft([nx, ny])
+          graph[nx][ny] = graph[x][y]
+        elif graph[nx][ny] == 1:
+          dq.append([nx, ny])
+          graph[nx][ny] = graph[x][y] + 1
+
+m, n = map(int, input().split())
+graph = []
+visited = [[0 for _ in range(m)] for _ in range(n)]
+for _ in range(n):
+  graph.append(list(map(int, input())))
+
+print(zero_one_bfs())

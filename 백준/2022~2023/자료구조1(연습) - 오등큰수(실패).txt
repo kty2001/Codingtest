@@ -1,0 +1,43 @@
+import sys
+input = sys.stdin.readline
+
+
+n = int(input())
+arr = list(map(int, input().split()))
+uni_arr = set(arr)
+fre_arr = [arr.count(i) for i in arr]
+ans = [-1] * n
+stack = []
+
+stack.append(0)
+for i in range(1, n):
+  while stack and fre_arr[stack[-1]] < fre_arr[i]:
+    ans[stack.pop()] = arr[i]
+  stack.append(i)
+
+print(*ans)
+
+-----------------------------------------
+
+import sys
+input = sys.stdin.readline
+
+
+n = int(input())
+arr = list(map(int, input().split()))
+ans = [-1] * n
+stack = []
+fre_arr = dict()
+for i in arr:
+    try:
+        fre_arr[i] += 1
+    except:
+        fre_arr[i] = 1
+
+stack.append(0)
+for i in range(1, n):
+  while stack and fre_arr[arr[stack[-1]]] < fre_arr[arr[i]]:
+    ans[stack.pop()] = arr[i]
+  stack.append(i)
+
+print(*ans)

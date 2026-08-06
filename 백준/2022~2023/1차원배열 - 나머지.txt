@@ -1,0 +1,22 @@
+data = []
+for i in range(10):
+    n = int(input())
+    if (n%42 not in data):
+        data.append(n % 42)
+print(len(data))
+
+------------------------------
+
+파이썬 리스트 중복 제거
+1) set() 이용 : set 자료형은 중복 허용하지 않음
+list(set(data))
+2) for문 이용
+for i in my_list:
+    if i not in result:
+	result.append(i)
+3) comprehension 이용
+[result.append(x) for x in my_list if x not in result]
+4)new_list = list(dict.fromkeys(my_list))
+
+파이썬 리스트 길이 확인
+len(data)

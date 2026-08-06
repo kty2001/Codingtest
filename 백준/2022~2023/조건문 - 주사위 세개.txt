@@ -1,0 +1,15 @@
+a = list(map(int,input().split()))
+a.sort(reverse = True)
+if a[0] == a[1] == a[2]:
+    print(10000 + a[0] * 1000)
+elif a[0] == a[1] or a[1] == a[2]:
+    print(1000 + a[1] * 100)
+else:
+    print(a[0] * 100)
+
+-------------------------------
+
+a.sort() : 정렬, 기본값은 오름차순 reverse옵션 True는 내림차순
+         key 옵션에 지정된 함수 결과에 따라 정렬    ex) key = len
+
+y = sorted(a) : 정렬, 본체는 변형하지 않음

@@ -1,0 +1,16 @@
+import sys
+input = sys.stdin.readline
+import math
+
+test_case = int(input())
+
+for _ in range(test_case):
+  arr = list(input().split())
+  n = arr[0]
+  arr = arr[1:]
+  
+  total = 0
+  for i in range(len(arr) - 1):
+    for j in arr[i + 1 :]:
+      total += math.gcd(int(arr[i]), int(j))
+  print(total)

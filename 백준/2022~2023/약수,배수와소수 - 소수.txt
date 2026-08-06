@@ -1,0 +1,18 @@
+m = int(input())
+n = int(input())
+yak_list = []
+for i in range(m, n + 1):
+  judg = 0
+  if i == 1: continue
+  else:
+    for j in range(2, i):
+      if i % j == 0:
+        judg = 1
+        break
+    if judg == 0:
+      yak_list.append(i)
+if len(yak_list) == 0:
+  print("-1")
+else:
+  print(sum(yak_list))
+  print(yak_list[0])

@@ -1,0 +1,27 @@
+n = input()
+cro_alpha = ['dz=', 'd-', 'c-', 'c=', 'lj', 'nj', 's=', 'z=']
+
+for i in cro_alpha:
+  n = n.replace(i,'*')
+
+print(len(n))
+----------------------------------
+
+croatia = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+word = input()
+
+for i in croatia :
+    word = word.replace(i, '*')  # input 변수와 동일한 이름의 변수
+print(len(word))
+
+
+문자열.replace(old, new, [count]): old 문자를 new 문자로 count번(기본값-1: 전체) 교체
+			      문자열에만 사용 가능
+
+for문 이용한 list에서 replace 사용
+test_list = ["kim", "kim", "kim", "kim", "park", "lee", "ryu", "yang", "jeon"]
+result_list = []
+
+for i in test_list:
+    temp = i.replace("kim", "ha")
+    result_list.append(temp)

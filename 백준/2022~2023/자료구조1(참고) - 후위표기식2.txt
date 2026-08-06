@@ -1,0 +1,25 @@
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+formula = input().rstrip()
+stack = []
+value = []
+for _ in range(n):
+  value.append(float(input().rstrip()))
+for i in formula:
+  if i.isalpha() == True:
+    stack.append(value[ord(i) - 65])
+  elif i == "+":
+    stack.append(stack.pop() + stack.pop())
+  elif i == "-":
+    a = stack.pop()
+    b = stack.pop()
+    stack.append(b - a)
+  elif i == "*":
+    stack.append(stack.pop() * stack.pop())
+  elif i == "/":
+    a = stack.pop()
+    b = stack.pop()
+    stack.append(b / a)
+print("{:.2f}".format(stack.pop()))

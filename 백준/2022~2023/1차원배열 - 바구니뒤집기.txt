@@ -1,0 +1,21 @@
+n, m = map(int, input().split())
+box_list = [i for i in range(n)]
+for x in range(m):
+  i, j = map(int,input().split())
+  box_list[i-1:j] = box_list[i-1:j][::-1]
+for x in box_list:
+  print(x+1, end = " ")
+
+-----------------------------------------
+
+import sys
+n,m=map(int, sys.stdin.readline().split())
+tmp=[i+1 for i in range(n)]
+for _ in range(m):
+    a,b=map(int,sys.stdin.readline().split())
+    tmp[a-1:b]=tmp[a-1:b][::-1]
+print(*tmp)
+
+
+print(*list): 리스트값을 띄어쓰기로 나눠서 출력([, ], ", '등과 같은 기호 사라짐)
+리스트 슬라이싱후 역순: tmp[a:b]=tmp[a:b][::-1]

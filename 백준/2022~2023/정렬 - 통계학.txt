@@ -1,0 +1,46 @@
+import sys
+n = int(input())
+num_list = [0 for _ in range(8002)] # -4000~4000
+sort_list = []
+for i in range(n):
+  num_list[int(sys.stdin.readline()) + 4000] += 1
+for i in range(8002):
+  if num_list[i] != 0:
+    for _ in range(num_list[i]):
+      sort_list.append(i - 4000)
+a = max(num_list)
+
+print(round(sum(sort_list)/len(sort_list)))
+print(sort_list[n//2])
+
+if num_list.count(a) >= 2:
+  rest_list = list(filter(lambda x: num_list[x] == a, range(8002)))
+  print(rest_list[1] - 4000)
+else: print(num_list.index(a) - 4000)
+print(sort_list[n-1] - sort_list[0])
+
+--------------------------------------
+
+from collections import Counter를 이용한 최빈값 구하기
+Counter(list).most_common(n): list의 최빈값을 n개 구하여 [(n0,개수),(n1,개수)...]의 리스트를 반환한다
+
+from collections import Counter
+
+numbers = []
+for _ in range(int(input())):
+    num = int(input())
+    numbers.append(num)
+numbers.sort()
+
+cnt = Counter(numbers).most_common(2)
+
+print(round(sum(numbers) / len(numbers)))
+print(numbers[len(numbers) // 2])
+if len(numbers) > 1:
+    if cnt[0][1] == cnt[1][1]:
+        print(cnt[1][0])
+    else:
+        print(cnt[0][0])
+else:
+    print(cnt[0][0])
+print(max(numbers) - min(numbers))

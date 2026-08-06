@@ -1,0 +1,22 @@
+--------------------------------
+n = int(input())
+a = list(map(int, input().split()))
+dp = [1 for i in range(n)]
+mans = 0
+ans = []
+
+for i in range(n):
+    for j in range(i):
+        if a[i] > a[j] and dp[i] <= dp[j]:
+            dp[i] = dp[j] + 1
+
+mans = max(dp)
+print(mans)
+
+for i in range(len(a) - 1, -1, -1):
+  if dp[i] == mans:
+    ans.append(a[i])
+    mans -= 1
+    
+ans.reverse()
+print(*ans)

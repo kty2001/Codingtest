@@ -1,0 +1,20 @@
+from collections import deque
+
+n, m = map(int, input().split())
+line = [0 for i in range(100001)]
+dq = deque()
+dq.append(n)
+while dq:
+  x = dq.popleft()
+  if x == m: break
+  if 0 <= x+1 <= 100000 and line[x+1] == 0:
+    dq.append(x+1)
+    line[x+1] = line[x] + 1
+  if 0 <= x-1 <= 100000 and line[x-1] == 0:
+    dq.append(x-1)
+    line[x-1] = line[x] + 1
+  if 0 <= x*2 <= 100000 and line[x*2] == 0:
+    dq.append(x*2)
+    line[x*2] = line[x] + 1
+    
+print(line[x])

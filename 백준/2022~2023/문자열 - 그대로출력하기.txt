@@ -1,0 +1,13 @@
+while True:
+  try:
+    n = input()
+  except EOFError:
+    break
+  print(n)
+----------------
+try, except: try 코드를 실행하고 except 발생했을 때 코드를 처리함
+while (True):
+  try:
+    print(input())
+  except EOFError:
+    break

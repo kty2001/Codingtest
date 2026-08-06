@@ -1,0 +1,22 @@
+----------------------------
+import sys
+input = sys.stdin.readline
+
+
+def count_two(x):
+  two = 0
+  while x != 0:
+    x //= 2
+    two += x
+  return two
+  
+def count_five(x):
+  five = 0
+  while x != 0:
+    x //= 5
+    five += x
+  return five
+  
+n, m = map(int, input().split())
+
+print(min(count_two(n)-count_two(m)-count_two(n-m), count_five(n)-count_five(m)-count_five(n-m)))

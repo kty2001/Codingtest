@@ -1,0 +1,31 @@
+n = int(input())
+for _ in range(n):
+  string = list(input())
+  cnt = 0
+  for i in string:
+    if i == "(": cnt += 1
+    else:
+      cnt -= 1
+      if cnt < 0:
+        break
+  if cnt == 0: print("YES")
+  else: print("NO")
+------------------------------
+
+a = int(input())
+for i in range(a):
+    b = input()
+    s = list(b)
+    sum = 0
+    for i in s:
+        if i == '(':
+            sum += 1
+        elif i == ')':
+            sum -= 1
+        if sum < 0:
+            print('NO')
+            break
+    if sum > 0:
+        print('NO')
+    elif sum == 0:
+        print('YES')

@@ -1,0 +1,45 @@
+import sys
+n = int(sys.stdin.readline())
+for i in range(n):
+    a = list(map(int, sys.stdin.readline().strip().split()))
+    print(a[0] + a[1])
+
+----------------------------------------
+
+import sys
+data = []
+n = int(sys.stdin.readline())
+for i in range(n):
+    data.append(list(map(int,sys.stdin.readline().split())))
+    print(data[i][0] + data[i][1])
+
+
+
+sys.stdin.readline은 import sys 해야 가능
+sys.stdin.readline이 int보다 속도 빠름
+strip(): 양쪽 공백 제거
+(1)append
+arry.append(x) 형태로 사용. x를 arry의 맨 끝에 객체로 추가. x가 iterable 자료형이더라도 전체를 하나의 객체로 해서 요소로 추가한다.
+>>> nums = [1, 2, 3]
+>>> nums.append(4)
+[1, 2, 3, 4]
+>>> nums.append([5, 6])
+[1, 2, 3, 4, [5, 6]] # 리스트가 하나의 객체로 추가되었음
+
+2) extend 함수
+array.extend(iterable) 형태로 사용. iterable의 각 요소를 하나씩 array의 끝에 요소로 추가. 괄호 안에 iterable 자료형만 올 수 있다.
+>>> nums = [1, 2, 3]
+>>> nums.extend([4, 5])
+[1, 2, 3, 4, 5]  #리스트로 주어진 [4, 5]의 요소가 각각 추가 되었음
+>>> a = [10]
+>>> nums.extend(a) 
+[1, 2, 3, 4, 5, 10]
+
+3) insert 함수
+array.insert(i, x) 형태로 사용. 원하는 위치 i에 x를 삽입할 수 있다. 값 x는 객체로 추가된다. append 함수와 마찬가지로 iterable 자료형이더라도 하나의 요소로 삽입된다.
+>>> nums = [1, 2, 3]
+>>> nums.insert(0, [10, 20])  # 0번째(맨앞에) 추가
+[[10, 20], 1, 2, 3]
+>>> nums.insert(-1, 100)  # 끝에서 1번째 전에 추가
+>>> print(nums)
+[[10, 20], 1, 2, 100, 3]  # 리스트 맨 끝에 저장되지 않음

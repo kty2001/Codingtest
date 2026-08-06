@@ -1,0 +1,18 @@
+import sys
+input = sys.stdin.readline
+
+n, b = map(str, input().split())
+b = int(b)
+multiple = 1
+ans = 0
+
+for i in reversed(n):
+  if "A" <= i <= "Z":
+    ans += (ord(i) - 55) * multiple
+  else: ans += int(i) * multiple
+  multiple *= b
+  
+print(ans)
+-----------------------------
+a, b = input().rstrip().split()
+print(int(a, int(b)))

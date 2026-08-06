@@ -1,0 +1,10 @@
+n = int(input())
+wkfl = len(str(n))
+total = 0
+
+for i in range(1, wkfl):
+  total += 9*(10**(i-1)) * i
+
+total += (n - 10**(wkfl-1) + 1) * wkfl
+
+print(total)

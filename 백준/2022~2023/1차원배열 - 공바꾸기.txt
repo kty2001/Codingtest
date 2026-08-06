@@ -1,0 +1,12 @@
+n, m = map(int, input().split())
+box_list = [i+1 for i in range(n)]
+for x in range(m):
+  i, j = map(int, input().split())
+  box_list[i-1], box_list[j-1] = box_list[j-1], box_list[i-1]
+for x in box_list:
+  print(x, end = " ")
+
+-------------------------------------
+
+python에서 list값 swap하기
+box_list[i], box_list[j] = box_list[j], box_list[i]

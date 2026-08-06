@@ -1,0 +1,18 @@
+n = int(input())
+while n > 1:
+  for i in range(2, n+1):
+    if n % i == 0:
+      print(i)
+      n = n // i	# /는 float형 반환함. //는 int형 반환함. int(n / i)보다는 n // i가 더 빠름
+      break
+
+-----------------------------------------
+
+N = int(input())
+m = 2
+while N!=1:
+  if N%m==0: 
+    print(m) 
+    N = N//m
+  else:
+    m += 1

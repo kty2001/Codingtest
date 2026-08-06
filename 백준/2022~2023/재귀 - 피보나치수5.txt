@@ -1,0 +1,20 @@
+def fibonachi(num, end):
+  if num == end: return fibo_list[num-1]
+  else:
+    fibo_list.append(fibo_list[num-2] + fibo_list[num - 1])
+    return fibonachi(num + 1, end)
+
+n = int(input())
+fibo_list = [0, 1]
+if n <= 1: print(fibo_list[n])
+else: print(fibonachi(2, n+1))
+
+---------------------------------
+
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+n = int(input())
+print(fibonacci(n))

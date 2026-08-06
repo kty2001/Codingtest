@@ -1,0 +1,7 @@
+import sys
+input = sys.stdin.readline
+
+n = int(input(), 2)
+print("{:o}".format(n))
+------------------------
+print(oct(int(input(),2))[2:])

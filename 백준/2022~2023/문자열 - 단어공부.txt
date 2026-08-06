@@ -1,0 +1,33 @@
+word = input().upper()
+cnt_list = [0 for i in range(len(word))]
+for i in range(len(word)):
+  if (word.find(word[i]) >= 0):
+    cnt_list[word.find(word[i])] += 1
+
+cnt_sort = sorted(cnt_list, reverse=True)
+if (len(word) == 1): print(word)
+elif (cnt_sort[0] == cnt_sort[1]): print("?")
+else:
+  print(word[cnt_list.index(cnt_sort[0])])
+
+----------------------------------------------
+
+words = input().upper()
+unique_words = list(set(words))  # 입력받은 문자열에서 중복값을 제거
+
+cnt_list = []
+for x in unique_words :
+    cnt = words.count(x)
+    cnt_list.append(cnt)  # count 숫자를 리스트에 append
+
+if cnt_list.count(max(cnt_list)) > 1 :  # count 숫자 최대값이 중복되면
+    print('?')
+else :
+    max_index = cnt_list.index(max(cnt_list))  # count 숫자 최대값 인덱스(위치)
+    print(unique_words[max_index])
+
+
+변수.find(str): 변수에서 str의 인덱스 값 반환. 변수는 문자열만 가능
+변수.index(str): 변수에서 str의 인덱스 값 반환. 변수는 문자열, 리스트, 튜플만 가능
+변수.count(str): 변수에서 str의 개수 반환. 변수는 문자열, 리스트, 튜플만 가능
+max(*args): 인자 중에서 max값 구함

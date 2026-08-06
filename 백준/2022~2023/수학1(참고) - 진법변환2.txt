@@ -1,0 +1,13 @@
+import sys
+input = sys.stdin.readline
+
+n, b = map(int, input().split())
+ans = ""
+
+while n > 0:
+  if 10 <= n % b <= 35:
+    ans = chr((n%b)+55) + ans
+  else: ans = str(n%b) + ans
+  n //= b
+
+print(ans)

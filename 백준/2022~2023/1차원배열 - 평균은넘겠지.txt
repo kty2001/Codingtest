@@ -1,0 +1,15 @@
+c = int(input())
+for i in range(c):
+  data = list(map(int, input().split()))
+  n = data[0]
+  del data[0]
+  data.sort(reverse=True)
+  ave = sum(data) / n
+  for j in range(n):
+    if (data[j] <= ave):
+      print("{0:0.3f}%".format(j/n*100))
+      break
+
+--------------------------------------
+
+format 형식으로 실수 출력할 때 {n, 0.3f}식으로 해야됨

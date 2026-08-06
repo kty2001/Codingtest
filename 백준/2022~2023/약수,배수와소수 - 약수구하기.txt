@@ -1,0 +1,26 @@
+n, k = map(int, input().split())
+ans = []
+for i in range(1, int(n/2) + 1):
+  if n % i == 0:
+    ans.append(i)
+ans.append(n)
+if len(ans) < k:
+  print('0')
+else:
+  print(ans[k - 1])
+
+----------------------------------
+약수 개수 구하는 코드: 약수는 대칭성을 띄므로 루트N까지만 돌리고 2배한 후 제곱수면 +1
+for문에서는 range(1, int(math.sqrt(N) + 1) 이용 
+N = int(input())
+cnt = 0
+i = 1
+while i * i < N:
+    if N % i == 0:
+        cnt += 2
+    i += 1
+if N == i * i:
+    cnt += 1
+
+
+print(cnt)

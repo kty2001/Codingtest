@@ -1,0 +1,42 @@
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+arr = list(map(int, input().split()))
+dp = [[1, 1] for _ in range(n)]
+ans = 0
+
+for i in range(n):
+  for j in range(i):
+    if arr[i] > arr[j]:
+      dp[i][0] = max(dp[i][0], dp[j][0] + 1)
+for i in range(n-1, -1, -1):
+  for j in range(n-1, i, -1):
+    if arr[i] > arr[j]:
+      dp[i][1] = max(dp[i][1], dp[j][1] + 1)
+
+for i in dp:
+  ans = max(ans, sum(i) - 1)
+
+print(ans)
+---------------------
+x = int(input())
+
+case = list(map(int, input().split()))
+reverse_case = case[::-1]
+
+increase = [1 for i in range(x)] # 가장 긴 증가하는 부분 수열
+decrease = [1 for i in range(x)] # 가장 긴 감소하는 부분 수열(reversed)
+
+for i in range(x):
+    for j in range(i):
+        if case[i] > case[j]:
+            increase[i] = max(increase[i], increase[j]+1)
+        if reverse_case[i] > reverse_case[j]:
+            decrease[i] = max(decrease[i], decrease[j]+1)
+
+result = [0 for i in range(x)]
+for i in range(x):
+    result[i] = increase[i] + decrease[x-i-1] -1
+
+print(max(result))

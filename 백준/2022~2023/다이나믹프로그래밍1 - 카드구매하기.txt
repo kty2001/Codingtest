@@ -1,0 +1,27 @@
+arr 기준
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+arr = [0] + list(map(int, input().split()))
+dyn_arr = arr
+
+for i in range(2, n+1):
+  for j in range(1, i+1):
+    if dyn_arr[i] < arr[i-j] + dyn_arr[j]:
+      dyn_arr[i] = arr[i-j] + dyn_arr[j]
+      
+print(dyn_arr[n])
+-------------------------
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+arr = [0] + list(map(int, input().split()))
+dyn_arr = [0] * (n+1)
+
+for i in range(1, n+1):
+  for j in range(1, i+1):
+    dyn_arr[i] = max(dyn_arr[i], dyn_arr[i-j] + arr[j])
+      
+print(dyn_arr[n])

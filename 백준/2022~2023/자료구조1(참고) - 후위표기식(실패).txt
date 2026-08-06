@@ -1,0 +1,29 @@
+-------------------------------------
+import sys
+input = sys.stdin.readline
+
+formula = input().rstrip()
+sign = []
+ans = []
+for i in formula:
+  if "A" <= i <= "Z":
+    ans.append(i)
+  elif i == "(": 
+    sign.append(i)
+  elif i == ")":
+    while sign and sign[-1] != "(":
+      ans.append(sign.pop())
+    sign.pop()
+  elif i == "*" or i == "/":
+    while sign and (sign[-1] == "*" or sign[-1] =="/"):
+      ans.append(sign.pop())
+    sign.append(i)
+  elif i == '+' or i == '-':
+    while sign and sign[-1] != '(':
+      ans += sign.pop()
+    sign.append(i)
+  print(ans, sign)
+while sign:
+  ans.append(sign.pop())
+  
+print(*ans, sep = "")

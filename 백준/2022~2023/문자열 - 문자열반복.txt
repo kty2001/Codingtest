@@ -1,0 +1,7 @@
+test_num = int(input())
+for i in range(test_num):
+  r, s = input().split(" ")
+  r = int(r)
+  for j in s:
+    print(j * r, end="")
+  print()

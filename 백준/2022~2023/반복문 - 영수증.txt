@@ -1,0 +1,11 @@
+amount = int(input())
+sum = 0
+n = int(input())
+for i in range(n):
+    a = list(map(int, input().split()))
+    sum = sum + (a[0] * a[1])
+print("Yes") if (amount == sum) else print("No")
+
+------------------
+
+amount 금액

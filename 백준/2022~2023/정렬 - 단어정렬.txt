@@ -1,0 +1,11 @@
+import sys
+
+n = int(input())
+coordinate_list = []
+for _ in range(n):
+  coordinate_list.append(sys.stdin.readline())
+coordinate_list = list(set(coordinate_list))
+coordinate_list.sort(key = lambda x : (len(x), x))
+for i in coordinate_list:
+  print(i.strip())
+

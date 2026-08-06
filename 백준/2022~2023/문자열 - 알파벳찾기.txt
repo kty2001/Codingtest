@@ -1,0 +1,6 @@
+word = input()
+lenth = ord('z') - ord('a') + 1
+ans = [0 for i in range(lenth)]
+for i in range(lenth):
+  ans[i] = word.find(chr(ord('a') + i))
+  print(ans[i], end = ' ')

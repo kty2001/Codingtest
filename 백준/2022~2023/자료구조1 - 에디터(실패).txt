@@ -1,0 +1,42 @@
+시간초과
+import sys
+input = sys.stdin.readline
+
+word_list = list(input())
+n = int(input())
+cursor = len(word_list)
+for _ in range(n):
+  command = list(input())
+  if command[0] == "L" and cursor != 0:
+    cursor -= 1
+  elif command[0] == "D" and cursor != len(word_list):
+    cursor += 1
+  elif command[0] == "B" and cursor != 0:
+    word_list.pop(cursor - 1)
+    cursor -= 1
+  elif command[0] == "P":
+    word_list.insert(cursor, command[2])
+    cursor += 1
+print(*word_list, sep = "")
+
+---------------------------------------
+
+import sys
+
+stack_l = list(input())
+stack_r = []
+n = int(input())
+
+for i in range(n):
+    command = sys.stdin.readline().split()
+
+    if command[0] == "L" and stack_l:
+        stack_r.append(stack_l.pop())
+    elif command[0] == "D" and stack_r:
+        stack_l.append(stack_r.pop())
+    elif command[0] == "B" and stack_l:
+        stack_l.pop()
+    elif command[0] == "P":
+        stack_l.append(command[1])
+
+print("".join(stack_l + list(reversed(stack_r))))

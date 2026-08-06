@@ -1,0 +1,21 @@
+n, m = map(int, input().split())
+box_list = [i+1 for i in range(n)]
+for x in range(m):
+  i, j, k = map(int, input().split())
+  replica_list = box_list[i-1:j]
+  for y in range(j - i + 1):
+    if(y+k <= j):
+      box_list[y+i-1] = replica_list[y+k-i]
+    else:
+      box_list[y+i-1] = replica_list[y+k-j-1]
+print(*box_list)
+
+----------------------------------------------------
+
+import sys
+n,m=map(int,sys.stdin.readline().split())
+tmp=[i+1 for i in range (n)]
+for _ in range(m):
+    begin,end,mid=map(int,sys.stdin.readline().split())
+    tmp[begin-1:end]=tmp[mid-1:end]+tmp[begin-1:mid-1]
+print(*tmp)

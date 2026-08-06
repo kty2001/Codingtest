@@ -1,0 +1,53 @@
+test_case = int(input())
+for _ in range(test_case):
+  n = int(input())
+  for i in range(2, n):
+    judg = 0
+    if n-i >= i:
+      for j in range(2, int(i/2)+1):
+        if i % j == 0:
+          judg = 1
+          break
+      for j in range(2, int((n-i) / 2)+1):
+        if (n - i) % j == 0:
+          judg = 1
+          break
+      if judg == 0:
+        min_gold = i
+        max_gold = n - i
+  print(min_gold, max_gold)
+
+--------------------------------------------
+입력받은 n을 2로 나누고 -1,+1씩 하면서 둘 다 약수인 경우 찾는 방법
+def is_prime(n):
+    if n == 1:
+        return False
+    for j in range(2, int(n**0.5) + 1):
+        if n % j == 0:
+            return False
+    return True
+for _ in range(int(input())):
+    num = int(input())
+    a, b = num//2, num//2
+    while a > 0:
+        if is_prime(a) and is_prime(b):
+            print(a, b)
+	break
+        else:
+            a -= 1
+            b += 1
+
+에라토스테네스의 체를 이용하여 약수 리스트 구하는 방법
+sosu = [0 for i in range(10001)]
+sosu[1] = 1
+for i in range(2, 98):
+    for j in range(i * 2, 10001, i):
+        sosu[j] = 1
+t = int(input())
+for i in range(t):
+    a = int(input())
+    b = a // 2
+    for j in range(b, 1, -1):
+        if sosu[a - j] == 0 and sosu[j] == 0:
+            print(j, a - j)
+            break

@@ -1,0 +1,9 @@
+import sys
+n = int(input())
+member_list = []
+for i in range(n):
+  member_list.append(list(map(str, sys.stdin.readline().split())))
+  member_list[i][0] = int(member_list[i][0])
+member_list.sort(key = lambda x : x[0])
+for i in member_list:
+  print(*i)

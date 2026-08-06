@@ -1,0 +1,28 @@
+import sys
+from math import lcm
+input = sys.stdin.readline
+
+t = int(input())
+for _ in range(t):
+  m, n, x, y = map(int, input().split())
+  mval = lcm(n, m)
+  for i in range((mval - x) // m + 1):
+    if m == x and n == y:
+      print(mval)
+      break
+    elif (i * m + (x - y)) / n == (i * m + (x - y)) // n:
+      print(i*m + x)
+      break
+  else:  print("-1")
+--------------
+def num(m, n, x, y):
+    while x <= m * n:
+        if (x - y) % n == 0:
+            return x
+        x += m
+    return -1
+
+t = int(input())
+for i in range(t):
+    m, n, x, y = map(int, input().split())
+    print(num(m, n, x, y))

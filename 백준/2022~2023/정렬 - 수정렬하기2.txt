@@ -1,0 +1,48 @@
+n = int(input())
+num_list = []
+for _ in range(n):
+  num_list.append(int(input()))
+num_list.sort()
+print(*num_list)
+
+---------------------------
+합병정렬 알고리즘: 리스트를 절반으로 나눈후 각각 sort정렬. 이후 i, j를 비교하며 작은 수를
+		새로운 리스트에 넣으며 i, j 증가. 이후 남은 리스트 추가
+import sys
+
+def sort(arr):
+    if len(arr)<2:
+        return arr
+    
+    mid=len(arr)//2
+    left=sort(arr[:mid])
+    right=sort(arr[mid:])
+
+    return merge(left,right)
+    
+def merge(left,right):
+    new_list=[]
+    i=0
+    j=0
+    
+    while (i<len(left)) & (j<len(right)):
+        if left[i]>right[j]:
+            new_list.append(right[j])
+            j+=1
+        else:
+            new_list.append(left[i])
+            i+=1
+    while (j<len(right)):
+            new_list.append(right[j])
+            j+=1
+    while (i<len(left)):
+            new_list.append(left[i])
+            i+=1
+    return new_list
+
+n = int(input())
+li = []
+for _ in range(n):
+  li.append(int(sys.stdin.readline())))
+for i in sort(li):
+    print(i)

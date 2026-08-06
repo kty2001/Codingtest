@@ -1,0 +1,35 @@
+def blank(n, end):
+  k = n//3
+  for i in range(end):
+    for j in range(end):
+      if draw[i][j] == "*":
+        if ((i//k)%3 == 1) and ((j//k)%3 == 1):
+          draw[i][j] = " "
+  if n > 3: blank(k, end)
+
+num = int(input())
+draw = [["*" for j in range(num)] for i in range(num)]
+blank(num*3, num)
+for i in draw:
+  print(*i, sep = "")
+
+--------------------------------
+
+def draw_stars(n):
+  if n==1:
+    return ['*']
+
+  Stars=draw_stars(n//3)
+  L=[]
+
+  for star in Stars:
+    L.append(star*3)
+  for star in Stars:
+    L.append(star+' '*(n//3)+star)
+  for star in Stars:
+    L.append(star*3)
+
+  return L
+
+N=int(input())
+print('\n'.join(draw_stars(N)))

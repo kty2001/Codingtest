@@ -1,0 +1,13 @@
+x, y = map(str, input().split())
+int_x = 100*int(x[2]) + 10*int(x[1]) + int(x[0])
+int_y = 100*int(y[2]) + 10*int(y[1]) + int(y[0])
+print(max(int_x, int_y))
+
+-----------------------------------------------
+
+num1, num2 = input().split()
+num1 = int(num1[::-1])
+num2 = int(num2[::-1])
+
+
+for i in reversed(list): list 역순으로 진행

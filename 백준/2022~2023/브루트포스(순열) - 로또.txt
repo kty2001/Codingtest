@@ -1,0 +1,12 @@
+import sys
+import itertools
+input = sys.stdin.readline
+
+while True:
+  n = list(map(int, input().split()))
+  if n == [0]: break
+  n, arr = n[0], n[1:]
+  
+  for i in list(itertools.combinations(arr, 6)):
+    print(*i)
+  print()

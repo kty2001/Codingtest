@@ -1,0 +1,19 @@
+a, b, v = map(int, input().split())
+for i in range(a, 0, -1):
+  if (v - i) % (a - b) == 0:
+    print(((v - i)//(a - b)) + 1)
+    break
+
+----------------------------------
+
+a,b,v = map(int,input().split())
+day = (v-b)/(a-b)				# a*day - b*(day-1) >= v 이항
+print(int(day) if day == int(day) else int(day)+1)	# day가 소수 -> day+1 출력, 정수 -> day 출력
+
+
+A, B, V = map(int, input().split())
+k=(V-A)%(A-B)
+if k==0:
+    print(int((V-A)//(A-B))+1)
+else :
+    print(int((V-A)//(A-B))+2)

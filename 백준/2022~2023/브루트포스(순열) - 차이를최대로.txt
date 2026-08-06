@@ -1,0 +1,16 @@
+import sys
+import itertools
+input = sys.stdin.readline
+
+n = int(input())
+arr = list(map(int, input().split()))
+total = 0
+max_total = 0
+
+for per_arr in list(itertools.permutations(arr)):
+  for i in range(n-1):
+    total += abs(per_arr[i] - per_arr[i+1])
+  max_total = max(max_total, total)
+  total = 0
+
+print(max_total)
